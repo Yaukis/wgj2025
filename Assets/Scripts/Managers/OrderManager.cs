@@ -1,22 +1,42 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 using Utils.EventBus;
+using Random = UnityEngine.Random;
 
 public class OrderManager : MonoSingleton<OrderManager>
 {
+    [SerializeField] private PotionData finalPotionData;
+
     private PotionData _currentPotion;
+
+    private void Start()
+    {
+        EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(GenerateNewOrder));
+        EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(GenerateNewOrder));
+    }
 
     public void GenerateNewOrder()
     {
-        var allPotions = Resources.LoadAll<PotionData>("Potions");
-        if (allPotions.Length == 0)
+        if (HardmodeManager.Instance.isHardmodeActive)
         {
-            Debug.LogError("No potions found in Resources/Potions.");
-            return;
+            if (finalPotionData == null) return;
+
+            _currentPotion = finalPotionData;
+        }
+        else
+        {
+            var allPotions = Resources.LoadAll<PotionData>("Potions");
+            if (allPotions.Length == 0)
+            {
+                Debug.LogError("No potions found in Resources/Potions.");
+                return;
+            }
+
+            _currentPotion = allPotions[Random.Range(0, allPotions.Length)];
         }
 
-        _currentPotion = allPotions[Random.Range(0, allPotions.Length)];
         Debug.Log($"New order generated: {_currentPotion.name}");
         EventBus<OnNewOrderEvent>.Raise(new OnNewOrderEvent(_currentPotion));
     }
