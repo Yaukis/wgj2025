@@ -53,7 +53,6 @@ public class HUDManager : MonoSingleton<HUDManager>
         
         EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
         EventBus<OnHardmodeTimerTickEvent>.AddListener(new EventBinding<OnHardmodeTimerTickEvent>(OnHardmodeTimerTick));
-        EventBus<OnHardmodeCompletedEvent>.AddListener(new EventBinding<OnHardmodeCompletedEvent>(OnHardmodeCompleted));
         EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
         
         EventBus<OnInteractableHoverStartEvent>.AddListener(new EventBinding<OnInteractableHoverStartEvent>(OnInteractableHoverStart));
@@ -66,7 +65,6 @@ public class HUDManager : MonoSingleton<HUDManager>
         
         EventBus<OnHardmodeStartedEvent>.RemoveListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
         EventBus<OnHardmodeTimerTickEvent>.RemoveListener(new EventBinding<OnHardmodeTimerTickEvent>(OnHardmodeTimerTick));
-        EventBus<OnHardmodeCompletedEvent>.RemoveListener(new EventBinding<OnHardmodeCompletedEvent>(OnHardmodeCompleted));
         EventBus<OnHardmodeFailedEvent>.RemoveListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
         
         EventBus<OnInteractableHoverStartEvent>.RemoveListener(new EventBinding<OnInteractableHoverStartEvent>(OnInteractableHoverStart));
@@ -117,10 +115,6 @@ public class HUDManager : MonoSingleton<HUDManager>
         
         var seconds = (int)evt.timeRemaining;
         _timerLabel.text = seconds.ToString();
-    }
-    
-    private void OnHardmodeCompleted()
-    {
     }
     
     private void OnHardmodeFailed()
