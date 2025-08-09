@@ -16,4 +16,4 @@ MonoBehaviour:
   name: "P\xE9talo Amarillo"
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   worldPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
-  grabPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+  grabPrefab: {fileID: 657285020696925585, guid: e7695f02b45b74335bdfb0825cf99b07, type: 3}

@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 8
   name: Pluma
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  worldPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
-  grabPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+  worldPrefab: {fileID: 4396250199252450271, guid: c037cb93a00de4b5c8f3ed6e6971ecd6, type: 3}
+  grabPrefab: {fileID: 919132149155446097, guid: 60af04cb522f545cc86b985737bbdc64, type: 3}

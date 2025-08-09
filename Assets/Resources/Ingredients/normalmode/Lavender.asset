@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 5
   name: Lavanda
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  worldPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
-  grabPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+  worldPrefab: {fileID: 4396250199252450271, guid: 9f5293d18076d4943b54882c0b69970c, type: 3}
+  grabPrefab: {fileID: 919132149155446097, guid: 2bfe50674d3f247d7ab3e18056a006a2, type: 3}

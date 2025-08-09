@@ -16,4 +16,4 @@ MonoBehaviour:
   name: "P\xE9talo Blanco"
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   worldPrefab: {fileID: 4396250199252450271, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
-  grabPrefab: {fileID: 4396250199252450271, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+  grabPrefab: {fileID: 8028003843336349594, guid: 6c7fc2b5de71a45d1a7eec6baa31c478, type: 3}
