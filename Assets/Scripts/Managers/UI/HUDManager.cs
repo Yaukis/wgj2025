@@ -19,6 +19,8 @@ public class HUDManager : MonoSingleton<HUDManager>
     
     private VisualElement _timerContainerElement;
     private Label _timerLabel;
+    
+    private VisualElement _tooltipContainerElement;
 
     protected override void Awake()
     {
@@ -37,6 +39,8 @@ public class HUDManager : MonoSingleton<HUDManager>
         
         _timerContainerElement = _rootElement.Q<VisualElement>("timerContainer");
         _timerLabel = _timerContainerElement.Q<Label>("timerLabel");
+        
+        _tooltipContainerElement = _rootElement.Q<VisualElement>("tooltipContainer");
 
         // Initially hide the recipe book and current order elements
         _recipeBookContainerElement.style.display = DisplayStyle.None;
@@ -46,10 +50,27 @@ public class HUDManager : MonoSingleton<HUDManager>
     private void Start()
     {
         EventBus<OnNewOrderEvent>.AddListener(new EventBinding<OnNewOrderEvent>(OnNewOrder));
+        
         EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
         EventBus<OnHardmodeTimerTickEvent>.AddListener(new EventBinding<OnHardmodeTimerTickEvent>(OnHardmodeTimerTick));
         EventBus<OnHardmodeCompletedEvent>.AddListener(new EventBinding<OnHardmodeCompletedEvent>(OnHardmodeCompleted));
         EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
+        
+        EventBus<OnInteractableHoverStartEvent>.AddListener(new EventBinding<OnInteractableHoverStartEvent>(OnInteractableHoverStart));
+        EventBus<OnInteractableHoverEndEvent>.AddListener(new EventBinding<OnInteractableHoverEndEvent>(OnInteractableHoverEnd));
+    }
+    
+    private void OnDestroy()
+    {
+        EventBus<OnNewOrderEvent>.RemoveListener(new EventBinding<OnNewOrderEvent>(OnNewOrder));
+        
+        EventBus<OnHardmodeStartedEvent>.RemoveListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
+        EventBus<OnHardmodeTimerTickEvent>.RemoveListener(new EventBinding<OnHardmodeTimerTickEvent>(OnHardmodeTimerTick));
+        EventBus<OnHardmodeCompletedEvent>.RemoveListener(new EventBinding<OnHardmodeCompletedEvent>(OnHardmodeCompleted));
+        EventBus<OnHardmodeFailedEvent>.RemoveListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
+        
+        EventBus<OnInteractableHoverStartEvent>.RemoveListener(new EventBinding<OnInteractableHoverStartEvent>(OnInteractableHoverStart));
+        EventBus<OnInteractableHoverEndEvent>.RemoveListener(new EventBinding<OnInteractableHoverEndEvent>(OnInteractableHoverEnd));
     }
 
     public void ToggleRecipeBook()
@@ -110,5 +131,20 @@ public class HUDManager : MonoSingleton<HUDManager>
         ToggleRecipeBookMode(false);
         
         _timerContainerElement.style.display = DisplayStyle.None;
+    }
+    
+    private void OnInteractableHoverStart(OnInteractableHoverStartEvent evt)
+    {
+        if (_tooltipContainerElement == null || IngredientHandlingManager.Instance.currentlyPickedUpIngredient) return;
+
+        _tooltipContainerElement.style.opacity = 1.5f;
+        _tooltipContainerElement.Q<Label>("tooltipLabel").text = evt.tooltipText;
+    }
+    
+    private void OnInteractableHoverEnd(OnInteractableHoverEndEvent evt)
+    {
+        if (_tooltipContainerElement == null) return;
+
+        _tooltipContainerElement.style.opacity = 0;
     }
 }

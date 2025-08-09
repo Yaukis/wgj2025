@@ -6,6 +6,7 @@ namespace Utils.EventBus
     {
     }
     
+    
     /* Ingredients */
 
     public struct OnIngredientPickupEvent : IEvent
@@ -38,6 +39,7 @@ namespace Utils.EventBus
         }
     }
     
+    
     /* Orders */
 
     public struct OnNewOrderEvent : IEvent
@@ -57,6 +59,7 @@ namespace Utils.EventBus
     public struct OnOrderFailedEvent : IEvent
     {
     }
+    
     
     /* Hardmode */
     public struct OnHardmodeStartedEvent : IEvent
@@ -81,8 +84,25 @@ namespace Utils.EventBus
     {
     }
     
+    
     /* Game */
     public struct OnGameOverEvent : IEvent
+    {
+    }
+    
+    
+    /* Tooltip */
+    public struct OnInteractableHoverStartEvent : IEvent
+    {
+        public readonly string tooltipText;
+
+        public OnInteractableHoverStartEvent(string tooltipText)
+        {
+            this.tooltipText = tooltipText;
+        }
+    }
+    
+    public struct OnInteractableHoverEndEvent : IEvent
     {
     }
 }
