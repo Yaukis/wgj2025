@@ -6,7 +6,6 @@
 
 .messageTitleStyle {
     -unity-font-style: bold;
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=70e00c5e3563acf4ab6f2ae03c6f75bc&type=3#NotInter-Regular");
     font-size: 28px;
 }
 
