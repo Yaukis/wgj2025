@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/HUD/HUDView.uss?fileID=7433441132597879392&amp;guid=4dcb52ad0d59f5c40a7969ec206f1d59&amp;type=3#HUDView" />
+    <ui:VisualElement name="root" style="flex-grow: 1; align-items: auto; align-content: auto; justify-content: center;">
+        <ui:VisualElement name="reticle" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5923138177525885446&amp;guid=70e00c5e3563acf4ab6f2ae03c6f75bc&amp;type=3#Remove@2x&quot;); align-self: center; align-content: center; width: 10px; height: 10px; flex-shrink: 0; top: auto; justify-content: center; align-items: stretch; position: absolute; left: auto; right: auto; bottom: auto;" />
+        <ui:VisualElement name="recipeBookContainerDONOTUSE" style="flex-grow: initial; align-items: center; flex-shrink: initial; align-self: center; width: 100%; height: 100%; justify-content: flex-end; display: none;">
+            <ui:VisualElement name="recipeBook" style="flex-grow: initial; width: 300px; height: 60%; flex-shrink: initial; background-color: rgba(55, 55, 55, 0); background-image: url(&quot;project://database/Assets/Sprites/Openbookbig.png?fileID=2800000&amp;guid=a14c044dc6665d24fafc188c719bf7ff&amp;type=3#Openbookbig&quot;); flex-direction: row;">
+                <ui:VisualElement name="normalRecipes" style="flex-grow: 1; background-size: 50% 100%;">
+                    <ui:VisualElement class="recipe" style="flex-grow: 1;">
+                        <ui:VisualElement name="icon" style="flex-grow: initial; flex-shrink: initial;" />
+                        <ui:Label text="Label" name="name" />
+                        <ui:VisualElement class="recipeIngredients" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="hardmodeRecipes" style="flex-grow: 1; background-size: 50% 100%; display: flex; visibility: hidden;">
+                    <ui:VisualElement class="recipe" style="flex-grow: 1;">
+                        <ui:VisualElement name="icon" style="flex-grow: initial; flex-shrink: initial;" />
+                        <ui:Label text="Label" name="name" />
+                        <ui:VisualElement class="recipeIngredients" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="recipeBookContainer" style="flex-grow: initial; align-items: center; flex-shrink: initial; align-self: center; width: 100%; height: 100%; justify-content: flex-end; display: none; visibility: visible;">
+            <ui:VisualElement name="recipeBookNormal" style="flex-grow: initial; width: 300px; height: 60%; flex-shrink: initial; background-color: rgba(55, 55, 55, 0); background-image: url(&quot;project://database/Assets/Sprites/Openbookbig.png?fileID=2800000&amp;guid=a14c044dc6665d24fafc188c719bf7ff&amp;type=3#Openbookbig&quot;); flex-direction: row; display: flex; visibility: visible;" />
+            <ui:VisualElement name="recipeBookHardmode" style="flex-grow: initial; width: 300px; height: 60%; flex-shrink: initial; background-color: rgba(255, 0, 0, 0.38); background-image: url(&quot;project://database/Assets/Sprites/Openbookbig.png?fileID=2800000&amp;guid=a14c044dc6665d24fafc188c719bf7ff&amp;type=3#Openbookbig&quot;); flex-direction: row; display: none; visibility: visible;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
