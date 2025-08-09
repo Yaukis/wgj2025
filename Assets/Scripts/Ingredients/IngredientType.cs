@@ -9,9 +9,12 @@ namespace Ingredients
         Mint,
         Lavender,
         SnakeScale,
-        FrogLegs,
-        Feathers,
-        ChickenLegs,
+        FrogLeg,
+        Feather,
+        ChickenLeg,
         RatTail,
+        GoldenPetal,
+        DragonScale,
+        PhoenixFeather,
     }
 }
