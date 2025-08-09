@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2062048389473129541}
   - component: {fileID: 7294372531918467303}
   m_Layer: 0
-  m_Name: Yellow Petal
+  m_Name: Feather
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48dac58144040f98377e9230d9adea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalIngredientData: {fileID: 11400000, guid: f51911ace45ff9c45acca2aee1efddd7, type: 2}
-  hardmodeIngredientData: {fileID: 11400000, guid: bf12396aea2e743afab4ba4e53f2c2bd, type: 2}
+  normalIngredientData: {fileID: 11400000, guid: 3df9f3f418f524705a0eeb4e15126bbc, type: 2}
+  hardmodeIngredientData: {fileID: 11400000, guid: 4c0b7abd9183646baa44dcde78bd39b1, type: 2}

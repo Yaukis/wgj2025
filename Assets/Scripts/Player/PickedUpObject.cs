@@ -25,9 +25,10 @@ public class PickedUpObject : MonoBehaviour
         if (ingredientModel != null)
         {
             pickedUpObjectModel.SetActive(true);
-            pickedUpObjectModel.transform.rotation = Quaternion.identity; // Reset rotation
-            pickedUpObjectModel.GetComponent<MeshFilter>().mesh = ingredientModel.GetComponent<MeshFilter>().sharedMesh;
-            pickedUpObjectModel.GetComponent<MeshRenderer>().material = ingredientModel.GetComponent<MeshRenderer>().sharedMaterial;
+            pickedUpObjectModel.transform.rotation = ingredientModel.transform.localRotation; // Reset rotation
+            pickedUpObjectModel.transform.localScale = ingredientModel.transform.localScale; // Reset scale
+            pickedUpObjectModel.GetComponent<MeshFilter>().mesh = ingredientModel.GetComponentInChildren<MeshFilter>().sharedMesh;
+            pickedUpObjectModel.GetComponent<MeshRenderer>().material = ingredientModel.GetComponentInChildren<MeshRenderer>().sharedMaterial;
         }
         else
         {
