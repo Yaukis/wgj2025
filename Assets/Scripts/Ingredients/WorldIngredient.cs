@@ -9,6 +9,6 @@ public class WorldIngredient : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("WorldIngredient clicked: " + gameObject.name);
-        EventBus<OnIngredientPickupEvent>.Raise(new OnIngredientPickupEvent(!GameManager.Instance.IsHardmode ? normalIngredientData : hardmodeIngredientData));
+        EventBus<OnIngredientPickupEvent>.Raise(new OnIngredientPickupEvent(!GameManager.Instance.isHardmode ? normalIngredientData : hardmodeIngredientData));
     }
 }

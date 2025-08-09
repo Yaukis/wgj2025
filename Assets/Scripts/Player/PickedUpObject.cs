@@ -20,7 +20,6 @@ public class PickedUpObject : MonoBehaviour
     
     private void OnIngredientPickup(OnIngredientPickupEvent evt)
     {
-        pickedUpObjectModel.SetActive(false);
         // Set the model to the picked up ingredient based on the ingredient data
         var ingredientModel = evt.ingredientData.grabPrefab;
         if (ingredientModel != null)

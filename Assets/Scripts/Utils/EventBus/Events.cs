@@ -5,6 +5,8 @@ namespace Utils.EventBus
     public interface IEvent
     {
     }
+    
+    /* Ingredients */
 
     public struct OnIngredientPickupEvent : IEvent
     {
@@ -34,5 +36,48 @@ namespace Utils.EventBus
         {
             this.ingredientData = ingredientData;
         }
+    }
+    
+    /* Orders */
+
+    public struct OnNewOrderEvent : IEvent
+    {
+        public readonly PotionData potionData;
+        
+        public OnNewOrderEvent(PotionData potionData)
+        {
+            this.potionData = potionData;
+        }
+    }
+    
+    public struct OnOrderCompletedEvent : IEvent
+    {
+    }
+    
+    public struct OnOrderFailedEvent : IEvent
+    {
+    }
+    
+    /* Hardmode */
+    public struct OnHardmodeStartedEvent : IEvent
+    {
+    }
+    
+    public struct OnHardmodeTimerTickEvent : IEvent
+    {
+        public readonly float timeRemaining;
+
+        public OnHardmodeTimerTickEvent(float timeRemaining)
+        {
+            this.timeRemaining = timeRemaining;
+        }
+    }
+    
+    public struct OnHardmodeCompletedEvent : IEvent
+    {
+    }
+    
+    public struct OnHardmodeFailedEvent : IEvent
+    {
     }
 }

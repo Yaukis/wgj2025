@@ -378,8 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e8ffb1310baf44ea32ca749817aef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 100
-  mouseSensitivityY: 100
+  mouseSensitivityX: 200
+  mouseSensitivityY: 200
   invertMouseY: 0
   minVerticalAngle: -60
   maxVerticalAngle: 60
@@ -632,6 +632,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497826071}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &688842076
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+      propertyPath: m_Name
+      value: Yellow Petal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +846,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1159664037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563690668942750427, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396250199252450271, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
+      propertyPath: m_Name
+      value: White Petal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e7db2ecb4baee24dab9af4750c51aef, type: 3}
 --- !u!1 &1414221211
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1414221212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -915,7 +1029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1597602028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1082,6 +1196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19215d62e52491aa0e5f7fc671702da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxIngredients: 3
+  maxHardmodeIngredients: 4
 --- !u!114 &1788754115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1206,7 +1322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4396250199252450271, guid: 671fa8f980a22e14f96f6420f75e6524, type: 3}
       propertyPath: m_Name
-      value: Ingredient
+      value: RedPetal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1222,6 +1338,8 @@ SceneRoots:
   - {fileID: 133611990}
   - {fileID: 2110132511}
   - {fileID: 411879635640699846}
+  - {fileID: 1159664037}
+  - {fileID: 688842076}
   - {fileID: 835981942}
   - {fileID: 1597602031}
   - {fileID: 1414221215}
