@@ -16,4 +16,4 @@ MonoBehaviour:
   name: Romero
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   worldPrefab: {fileID: 4396250199252450271, guid: dd1c5e4d37aec4f7faecc4f6146cf359, type: 3}
-  grabPrefab: {fileID: 919132149155446097, guid: 786e77228268a4e6297494f5a2b8ada7, type: 3}
+  grabPrefab: {fileID: 948267634920610897, guid: 1713ce2626b1545ce864f4cf9c89267e, type: 3}
