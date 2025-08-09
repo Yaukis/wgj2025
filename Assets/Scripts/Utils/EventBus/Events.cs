@@ -80,4 +80,9 @@ namespace Utils.EventBus
     public struct OnHardmodeFailedEvent : IEvent
     {
     }
+    
+    /* Game */
+    public struct OnGameOverEvent : IEvent
+    {
+    }
 }

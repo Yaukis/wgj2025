@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utils.EventBus;
 
 public class PlayerCommands : MonoBehaviour
 {
@@ -11,12 +12,22 @@ public class PlayerCommands : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            UIManager.Instance.ToggleRecipeBook();
+            HUDManager.Instance.ToggleRecipeBook();
         }
         
         if (Input.GetKeyDown(KeyCode.T))
         {
-            UIManager.Instance.ToggleRecipeBookMode(true);
+            HUDManager.Instance.ToggleRecipeBookMode(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            HardmodeManager.Instance.SetHardmode(!HardmodeManager.Instance.isHardmodeActive);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            EventBus<OnOrderCompletedEvent>.Raise(new OnOrderCompletedEvent());
         }
     }
 }

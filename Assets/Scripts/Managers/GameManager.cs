@@ -4,7 +4,7 @@ using Utils.EventBus;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public bool isHardmode;
+    public bool isGameOver;
 
     private void Start()
     {
@@ -18,10 +18,24 @@ public class GameManager : MonoSingleton<GameManager>
         EventBus<OnOrderCompletedEvent>.RemoveListener(new EventBinding<OnOrderCompletedEvent>(OnOrderCompleted));
     }
     
-    private void OnOrderCompleted(OnOrderCompletedEvent evt)
+    private void OnOrderCompleted()
     {
         Debug.Log($"Order completed.");
-        isHardmode = true;
-        EventBus<OnHardmodeStartedEvent>.Raise(new OnHardmodeStartedEvent());
+        if (!HardmodeManager.Instance.isHardmodeActive)
+        {
+            HardmodeManager.Instance.SetHardmode(true);
+        }
+        else
+        {
+            isGameOver = true;
+            Debug.Log("Game Over! You win.");
+            EventBus<OnGameOverEvent>.Raise(new OnGameOverEvent());
+            Invoke(nameof(PauseGame), 2f);
+        }
+    }
+    
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
     }
 }

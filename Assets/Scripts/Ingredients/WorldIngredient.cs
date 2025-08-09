@@ -5,10 +5,12 @@ public class WorldIngredient : MonoBehaviour
 {
     [SerializeField] private IngredientData normalIngredientData;
     [SerializeField] private IngredientData hardmodeIngredientData;
-    
+
     private void OnMouseDown()
     {
         Debug.Log("WorldIngredient clicked: " + gameObject.name);
-        EventBus<OnIngredientPickupEvent>.Raise(new OnIngredientPickupEvent(!GameManager.Instance.isHardmode ? normalIngredientData : hardmodeIngredientData));
+        EventBus<OnIngredientPickupEvent>.Raise(new OnIngredientPickupEvent(!HardmodeManager.Instance.isHardmodeActive
+            ? normalIngredientData
+            : hardmodeIngredientData));
     }
 }
