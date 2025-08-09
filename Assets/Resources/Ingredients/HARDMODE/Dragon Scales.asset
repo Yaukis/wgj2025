@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 12
   name: Escama de Dragon
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  worldPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
-  grabPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+  worldPrefab: {fileID: 4396250199252450271, guid: e2b85490b2e834a4194451e656b7e0a1, type: 3}
+  grabPrefab: {fileID: 1166682220846738901, guid: 1b2865f9a26044bf4a6b951e8b519061, type: 3}

@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 13
   name: "Pluma de F\xE9nix"
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  worldPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
-  grabPrefab: {fileID: 4396250199252450271, guid: 15320f4234c4bb94dbe01dee01feec96, type: 3}
+  worldPrefab: {fileID: 4396250199252450271, guid: 11c5dae7a72b44b9aad7577396e31766, type: 3}
+  grabPrefab: {fileID: 8146399953121211817, guid: 21ed0c6b3a7814993afd1b154566245a, type: 3}
