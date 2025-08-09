@@ -1,10 +1,12 @@
-using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils.EventBus;
 
 public class PickedUpObject : MonoBehaviour
 {
-    [SerializeField] private GameObject pickedUpObjectModel;
+    [FormerlySerializedAs("pickedUpObjectModel")] [SerializeField] private GameObject pickedUpObject;
+    
+    private GameObject _pickedUpObjectModel;
     
     private void Awake()
     {
@@ -24,21 +26,20 @@ public class PickedUpObject : MonoBehaviour
         var ingredientModel = evt.ingredientData.grabPrefab;
         if (ingredientModel != null)
         {
-            pickedUpObjectModel.SetActive(true);
-            pickedUpObjectModel.transform.rotation = ingredientModel.transform.localRotation; // Reset rotation
-            pickedUpObjectModel.transform.localScale = ingredientModel.transform.localScale; // Reset scale
-            pickedUpObjectModel.GetComponent<MeshFilter>().mesh = ingredientModel.GetComponentInChildren<MeshFilter>().sharedMesh;
-            pickedUpObjectModel.GetComponent<MeshRenderer>().material = ingredientModel.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            pickedUpObject.SetActive(true);
+            _pickedUpObjectModel = Instantiate(ingredientModel, pickedUpObject.transform);
+            _pickedUpObjectModel.transform.localPosition = Vector3.zero;
         }
         else
         {
             Debug.LogWarning("Ingredient model is null for: " + evt.ingredientData.name);
-            pickedUpObjectModel.SetActive(false);
+            pickedUpObject.SetActive(false);
         }
     }
     
     private void OnIngredientDrop(OnIngredientDropEvent evt)
     {
-        pickedUpObjectModel.SetActive(false);
+        pickedUpObject.SetActive(false);
+        Destroy(_pickedUpObjectModel);
     }
 }
