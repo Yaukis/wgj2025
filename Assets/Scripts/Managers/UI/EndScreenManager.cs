@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Utils;
 using Utils.EventBus;
-using Cursor = UnityEngine.UIElements.Cursor;
 
 public class EndScreenManager : MonoSingleton<EndScreenManager>
 {
     private UIDocument _uiDocument;
     
     private VisualElement _rootElement;
+    private Button _exitButton;
 
     protected override void Awake()
     {
@@ -18,6 +18,13 @@ public class EndScreenManager : MonoSingleton<EndScreenManager>
         if (_uiDocument == null) return;
         
         _rootElement = _uiDocument.rootVisualElement.Q<VisualElement>("root");
+        
+        _exitButton = _rootElement.Q<Button>("exitButton");
+        
+        if (_exitButton != null)
+        {
+            _exitButton.clicked += OnExitButtonClicked;
+        }
     }
 
     private void Start()
@@ -35,5 +42,10 @@ public class EndScreenManager : MonoSingleton<EndScreenManager>
         if (_rootElement == null) return;
         
         _rootElement.style.opacity = 1;
+    }
+    
+    private void OnExitButtonClicked()
+    {
+        Application.Quit();
     }
 }

@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StartScreen/StartScreen.uss?fileID=7433441132597879392&amp;guid=af90d5fad5163334fb7e92ed4373a7e8&amp;type=3#StartScreen" />
     <engine:VisualElement name="root" style="flex-grow: 1; align-items: center; justify-content: center; opacity: 0; display: flex; visibility: visible; transition-duration: 1s; background-image: url(&quot;project://database/Assets/2D/UI/GANASTE_potionistic.png?fileID=2800000&amp;guid=e55fba42d7b731048ace6843ec9922f6&amp;type=3#GANASTE_potionistic&quot;); width: 100%; height: 100%;">
-        <engine:Button text="Salir" class="button" style="position: absolute; top: auto; left: auto; bottom: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <engine:Button text="Salir" name="exitButton" class="button" style="position: absolute; top: auto; left: auto; bottom: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
     </engine:VisualElement>
 </engine:UXML>
