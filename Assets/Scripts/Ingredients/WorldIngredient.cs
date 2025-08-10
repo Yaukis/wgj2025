@@ -6,6 +6,9 @@ public class WorldIngredient : Interactable
     [SerializeField] private IngredientData normalIngredientData;
     [SerializeField] private IngredientData hardmodeIngredientData;
 
+    [SerializeField] private GameObject normalIngredientModel;
+    [SerializeField] private GameObject hardmodeIngredientModel;
+
     private void Awake()
     {
         if (normalIngredientData == null || hardmodeIngredientData == null)
@@ -16,9 +19,7 @@ public class WorldIngredient : Interactable
 
     private void OnEnable()
     {
-        tooltipText = HardmodeManager.Instance.isHardmodeActive
-            ? hardmodeIngredientData.name
-            : normalIngredientData.name;
+        tooltipText = normalIngredientData.name;
     }
 
     private void Start()
@@ -48,13 +49,15 @@ public class WorldIngredient : Interactable
     
     private void OnHardmodeStarted()
     {
-        Instantiate(hardmodeIngredientData.worldPrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (normalIngredientModel) normalIngredientModel.SetActive(false);
+        if (hardmodeIngredientModel) hardmodeIngredientModel.SetActive(true);
+        tooltipText = hardmodeIngredientData.name; // Update tooltip text to hardmode ingredient name
     }
     
     private void OnHardmodeFailed()
     {
-        Instantiate(normalIngredientData.worldPrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (normalIngredientModel) normalIngredientModel.SetActive(true);
+        if (hardmodeIngredientModel) hardmodeIngredientModel.SetActive(false);
+        tooltipText = normalIngredientData.name; // Reset tooltip text to normal ingredient name
     }
 }
