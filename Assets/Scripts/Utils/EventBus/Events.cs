@@ -95,10 +95,12 @@ namespace Utils.EventBus
     public struct OnInteractableHoverStartEvent : IEvent
     {
         public readonly string tooltipText;
+        public readonly bool showHandIcon;
 
-        public OnInteractableHoverStartEvent(string tooltipText)
+        public OnInteractableHoverStartEvent(string tooltipText, bool showHandIcon)
         {
             this.tooltipText = tooltipText;
+            this.showHandIcon = showHandIcon;
         }
     }
     

@@ -5,6 +5,10 @@ using Utils.EventBus;
 
 public class HUDManager : MonoSingleton<HUDManager>
 {
+    [SerializeField] private Sprite reticleIcon;
+    [SerializeField] private Sprite openHandIcon;
+    [SerializeField] private Sprite grabbingHandIcon;
+    
     private UIDocument _uiDocument;
     
     private VisualElement _rootElement;
@@ -14,6 +18,7 @@ public class HUDManager : MonoSingleton<HUDManager>
     private VisualElement _recipeBookHardmodeElement;
     
     private VisualElement _currentOrderContainerElement;
+    private VisualElement _currentOrderTextGroupElement;
     private Label _currentOrderLabel;
     private VisualElement _currentPotionIconElement;
     
@@ -21,6 +26,8 @@ public class HUDManager : MonoSingleton<HUDManager>
     private Label _timerLabel;
     
     private VisualElement _tooltipContainerElement;
+    
+    private VisualElement _reticleVisualElement;
 
     protected override void Awake()
     {
@@ -34,6 +41,7 @@ public class HUDManager : MonoSingleton<HUDManager>
         _recipeBookHardmodeElement = _recipeBookContainerElement.Q<VisualElement>("recipeBookHardmode");
         
         _currentOrderContainerElement = _rootElement.Q<VisualElement>("orderContainer");
+        _currentOrderTextGroupElement = _currentOrderContainerElement.Q<VisualElement>("MessageBox-TextGroup");
         _currentOrderLabel = _currentOrderContainerElement.Q<Label>("MessageBox-Body");
         _currentPotionIconElement = _currentOrderContainerElement.Q<VisualElement>("potionIcon");
         
@@ -41,10 +49,11 @@ public class HUDManager : MonoSingleton<HUDManager>
         _timerLabel = _timerContainerElement.Q<Label>("timerLabel");
         
         _tooltipContainerElement = _rootElement.Q<VisualElement>("tooltipContainer");
+        
+        _reticleVisualElement = _rootElement.Q<VisualElement>("reticle");
 
         // Initially hide the recipe book and current order elements
         _recipeBookContainerElement.style.display = DisplayStyle.None;
-        _currentOrderContainerElement.style.display = DisplayStyle.None;
     }
 
     private void Start()
@@ -57,6 +66,9 @@ public class HUDManager : MonoSingleton<HUDManager>
         
         EventBus<OnInteractableHoverStartEvent>.AddListener(new EventBinding<OnInteractableHoverStartEvent>(OnInteractableHoverStart));
         EventBus<OnInteractableHoverEndEvent>.AddListener(new EventBinding<OnInteractableHoverEndEvent>(OnInteractableHoverEnd));
+        
+        EventBus<OnIngredientPickupEvent>.AddListener(new EventBinding<OnIngredientPickupEvent>(OnIngredientPickup));
+        EventBus<OnIngredientDropEvent>.AddListener(new EventBinding<OnIngredientDropEvent>(OnIngredientDrop));
     }
     
     private void OnDestroy()
@@ -69,6 +81,9 @@ public class HUDManager : MonoSingleton<HUDManager>
         
         EventBus<OnInteractableHoverStartEvent>.RemoveListener(new EventBinding<OnInteractableHoverStartEvent>(OnInteractableHoverStart));
         EventBus<OnInteractableHoverEndEvent>.RemoveListener(new EventBinding<OnInteractableHoverEndEvent>(OnInteractableHoverEnd));
+        
+        EventBus<OnIngredientPickupEvent>.RemoveListener(new EventBinding<OnIngredientPickupEvent>(OnIngredientPickup));
+        EventBus<OnIngredientDropEvent>.RemoveListener(new EventBinding<OnIngredientDropEvent>(OnIngredientDrop));
     }
 
     public void ToggleRecipeBook()
@@ -88,11 +103,27 @@ public class HUDManager : MonoSingleton<HUDManager>
         _recipeBookHardmodeElement.style.display = isHardmode ? DisplayStyle.Flex : DisplayStyle.None;
     }
     
+    private void ChangeOrderContainerVisibility(bool isVisible)
+    {
+        if (_currentOrderContainerElement == null) return;
+        
+        if (isVisible)
+        {
+            _currentOrderContainerElement.style.translate = new StyleTranslate(new Translate(0, 0));
+            _currentOrderTextGroupElement.style.opacity = 1;
+        }
+        else
+        {
+            _currentOrderContainerElement.style.translate = new StyleTranslate(new Translate(0, 400));
+            _currentOrderTextGroupElement.style.opacity = 0;
+        }
+    }
+    
     private void OnNewOrder(OnNewOrderEvent evt)
     {
         if (_currentOrderLabel == null || HardmodeManager.Instance.isHardmodeActive) return;
-        
-        _currentOrderContainerElement.style.display = DisplayStyle.Flex;
+
+        ChangeOrderContainerVisibility(true);
         const string baseText = "¡Oye! Necesito que hagas una poción de ";
         _currentOrderLabel.text = baseText + $"<b>{evt.potionData.name}</b>...";
         _currentPotionIconElement.style.backgroundImage = new StyleBackground(evt.potionData.icon);
@@ -100,9 +131,7 @@ public class HUDManager : MonoSingleton<HUDManager>
 
     private void OnHardmodeStarted()
     {
-        if (_currentOrderContainerElement == null) return;
-        
-        _currentOrderContainerElement.style.display = DisplayStyle.None;
+        ChangeOrderContainerVisibility(false);
         ToggleRecipeBookMode(true);
 
         if (_timerContainerElement == null) return;
@@ -119,11 +148,10 @@ public class HUDManager : MonoSingleton<HUDManager>
     
     private void OnHardmodeFailed()
     {
-        if (_currentOrderContainerElement == null) return;
-        
-        _currentOrderContainerElement.style.display = DisplayStyle.Flex;
+        ChangeOrderContainerVisibility(true);
         ToggleRecipeBookMode(false);
         
+        if (_timerContainerElement == null) return;
         _timerContainerElement.style.display = DisplayStyle.None;
     }
     
@@ -133,6 +161,10 @@ public class HUDManager : MonoSingleton<HUDManager>
 
         _tooltipContainerElement.style.opacity = 1.5f;
         _tooltipContainerElement.Q<Label>("tooltipLabel").text = evt.tooltipText;
+
+        if (!evt.showHandIcon || _reticleVisualElement == null) return;
+        
+        _reticleVisualElement.style.backgroundImage = new StyleBackground(openHandIcon);
     }
     
     private void OnInteractableHoverEnd(OnInteractableHoverEndEvent evt)
@@ -140,5 +172,23 @@ public class HUDManager : MonoSingleton<HUDManager>
         if (_tooltipContainerElement == null) return;
 
         _tooltipContainerElement.style.opacity = 0;
+        
+        if (_reticleVisualElement == null || IngredientHandlingManager.Instance.currentlyPickedUpIngredient) return;
+        
+        _reticleVisualElement.style.backgroundImage = new StyleBackground(reticleIcon);
+    }
+    
+    private void OnIngredientPickup(OnIngredientPickupEvent evt)
+    {
+        if (_reticleVisualElement == null) return;
+        
+        _reticleVisualElement.style.backgroundImage = new StyleBackground(grabbingHandIcon);
+    }
+    
+    private void OnIngredientDrop(OnIngredientDropEvent evt)
+    {
+        if (_reticleVisualElement == null) return;
+        
+        _reticleVisualElement.style.backgroundImage = new StyleBackground(reticleIcon);
     }
 }

@@ -15,7 +15,7 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        EventBus<OnInteractableHoverStartEvent>.Raise(new OnInteractableHoverStartEvent(tooltipText));
+        EventBus<OnInteractableHoverStartEvent>.Raise(new OnInteractableHoverStartEvent(tooltipText, false));
     }
     
     private void OnMouseExit()

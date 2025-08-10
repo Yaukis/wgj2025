@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using Utils.EventBus;
 
@@ -34,6 +35,11 @@ public class WorldIngredient : Interactable
         EventBus<OnIngredientPickupEvent>.Raise(new OnIngredientPickupEvent(!HardmodeManager.Instance.isHardmodeActive
             ? normalIngredientData
             : hardmodeIngredientData));
+    }
+    
+    private void OnMouseEnter()
+    {
+        EventBus<OnInteractableHoverStartEvent>.Raise(new OnInteractableHoverStartEvent(tooltipText, true));
     }
     
     private void OnHardmodeStarted()
