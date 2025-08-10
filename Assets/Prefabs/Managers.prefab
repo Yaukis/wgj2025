@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2963619286731410886}
   - component: {fileID: 1258461240337204094}
   - component: {fileID: 4020347758691172030}
-  - component: {fileID: 520474222039654768}
   - component: {fileID: 4576949163405849371}
+  - component: {fileID: 1959324009706064432}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxIngredients: 3
-  maxHardmodeIngredients: 4
+  maxHardmodeIngredients: 7
 --- !u!114 &4020347758691172030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +90,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f83b70cfad48d088c6a46e4331576f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalPotionData: {fileID: 11400000, guid: 1ec496b78df59b34b92c8a52239b920f, type: 2}
---- !u!114 &520474222039654768
+  finalPotionData: {fileID: 11400000, guid: 2efb063de731b194598fb1cd3bbde855, type: 2}
+--- !u!114 &4576949163405849371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963673727927672654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1208ac811140e5bed66a7b5024e449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 30
+  isHardmodeActive: 0
+--- !u!114 &1959324009706064432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,17 +129,13 @@ MonoBehaviour:
     ID: 1073741825
     _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
     <DebugObject>k__BackingField: {fileID: 8963673727927672654}
---- !u!114 &4576949163405849371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8963673727927672654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1208ac811140e5bed66a7b5024e449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTime: 30
-  isHardmodeActive: 0
+  errorSFX:
+    ID: 1073741828
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8963673727927672654}
+  bkgMusic:
+    ID: 268435458
+    _sourceAsset: {fileID: 11400000, guid: d8150280a073e4809924c7c7f2b35947, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8963673727927672654}
+  pitchShiftStep: 0.01
+  pitchShiftInterval: 300
