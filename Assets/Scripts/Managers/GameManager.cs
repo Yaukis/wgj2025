@@ -29,7 +29,7 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             isGameRunning = false;
-            Debug.Log("Game Over! You win.");
+            playerGameObject.SetActive(false);
             EventBus<OnGameOverEvent>.Raise(new OnGameOverEvent());
             Invoke(nameof(PauseGame), 2f);
         }

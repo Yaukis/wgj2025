@@ -14,12 +14,17 @@ public abstract class Interactable : MonoBehaviour
             tooltipText = gameObject.name;
         }
         
-        EventBus<OnGameStartEvent>.AddListener(new EventBinding<OnGameStartEvent>(OnGameStart));
+        EventBus<OnGameStartEvent>.AddListener(new EventBinding<OnGameStartEvent>(Activate));
     }
-    
+
+    private void OnEnable()
+    {
+        Invoke(nameof(Initialize), 1f);
+    }
+
     private void OnDestroy()
     {
-        EventBus<OnGameStartEvent>.RemoveListener(new EventBinding<OnGameStartEvent>(OnGameStart));
+        EventBus<OnGameStartEvent>.RemoveListener(new EventBinding<OnGameStartEvent>(Activate));
     }
 
     private void OnMouseEnter()
@@ -34,8 +39,15 @@ public abstract class Interactable : MonoBehaviour
         EventBus<OnInteractableHoverEndEvent>.Raise(new OnInteractableHoverEndEvent());
     }
     
-    private void OnGameStart(OnGameStartEvent evt)
+    private void Activate()
     {
         isActive = true;
+    }
+
+    private void Initialize()
+    {
+        if (!GameManager.Instance.isGameRunning) return;
+        
+        Activate();
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class QuitGameButton : Interactable
 {
-    private void Awake()
+    private void Start()
     {
         tooltipText = "Salir del juego";
     }

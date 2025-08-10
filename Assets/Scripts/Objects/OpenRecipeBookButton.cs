@@ -1,6 +1,6 @@
 public class OpenRecipeBookButton : Interactable
 {
-    private void Awake()
+    private void Start()
     {
         tooltipText = "Abrir recetario";
     }

@@ -19,21 +19,9 @@ public class WorldIngredient : Interactable
         }
     }
 
-    private void OnEnable()
-    {
-        tooltipText = normalIngredientData.name;
-    }
-
     private void Start()
     {
-        EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
-        EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
-    }
-    
-    private void OnDestroy()
-    {
-        EventBus<OnHardmodeStartedEvent>.RemoveListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
-        EventBus<OnHardmodeFailedEvent>.RemoveListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
+        ToggleIngredientModel(HardmodeManager.Instance.isHardmodeActive);
     }
 
     private void OnMouseDown()
@@ -53,17 +41,19 @@ public class WorldIngredient : Interactable
         EventBus<OnInteractableHoverStartEvent>.Raise(new OnInteractableHoverStartEvent(tooltipText, true));
     }
     
-    private void OnHardmodeStarted()
+    private void ToggleIngredientModel(bool isHardmode)
     {
-        if (normalIngredientModel) normalIngredientModel.SetActive(false);
-        if (hardmodeIngredientModel) hardmodeIngredientModel.SetActive(true);
-        tooltipText = hardmodeIngredientData.name; // Update tooltip text to hardmode ingredient name
-    }
-    
-    private void OnHardmodeFailed()
-    {
-        if (normalIngredientModel) normalIngredientModel.SetActive(true);
-        if (hardmodeIngredientModel) hardmodeIngredientModel.SetActive(false);
-        tooltipText = normalIngredientData.name; // Reset tooltip text to normal ingredient name
+        if (isHardmode)
+        {
+            if (normalIngredientModel) normalIngredientModel.SetActive(false);
+            if (hardmodeIngredientModel) hardmodeIngredientModel.SetActive(true);
+            tooltipText = hardmodeIngredientData.name; // Update tooltip text to hardmode ingredient name
+        }
+        else
+        {
+            if (normalIngredientModel) normalIngredientModel.SetActive(true);
+            if (hardmodeIngredientModel) hardmodeIngredientModel.SetActive(false);
+            tooltipText = normalIngredientData.name; // Reset tooltip text to normal ingredient name
+        }
     }
 }

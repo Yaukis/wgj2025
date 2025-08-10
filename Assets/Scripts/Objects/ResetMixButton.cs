@@ -1,6 +1,6 @@
 public class ResetMixButton : Interactable
 {
-    private void Awake()
+    private void Start()
     {
         tooltipText = "Reiniciar poción";
     }
