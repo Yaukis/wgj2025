@@ -86,6 +86,10 @@ namespace Utils.EventBus
     
     
     /* Game */
+    public struct OnGameStartEvent : IEvent
+    {
+    }
+    
     public struct OnGameOverEvent : IEvent
     {
     }

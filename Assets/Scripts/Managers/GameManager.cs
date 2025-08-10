@@ -4,7 +4,10 @@ using Utils.EventBus;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public bool isGameOver;
+    [SerializeField] private GameObject menuCamera;
+    [SerializeField] private GameObject playerGameObject;
+    
+    public bool isGameRunning;
 
     private void Start()
     {
@@ -25,7 +28,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         else
         {
-            isGameOver = true;
+            isGameRunning = false;
             Debug.Log("Game Over! You win.");
             EventBus<OnGameOverEvent>.Raise(new OnGameOverEvent());
             Invoke(nameof(PauseGame), 2f);
@@ -35,5 +38,12 @@ public class GameManager : MonoSingleton<GameManager>
     private void PauseGame()
     {
         Time.timeScale = 0f;
+    }
+
+    public void StartGame()
+    {
+        EventBus<OnGameStartEvent>.Raise(new OnGameStartEvent());
+        menuCamera.SetActive(false);
+        playerGameObject.SetActive(true);
     }
 }

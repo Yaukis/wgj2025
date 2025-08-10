@@ -9,6 +9,7 @@ public class QuitGameButton : Interactable
     
     private void OnMouseDown()
     {
+        if (!isActive) return;
         // Quit the game when the button is clicked
         Application.Quit();
     }

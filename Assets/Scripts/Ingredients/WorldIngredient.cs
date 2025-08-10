@@ -9,8 +9,10 @@ public class WorldIngredient : Interactable
     [SerializeField] private GameObject normalIngredientModel;
     [SerializeField] private GameObject hardmodeIngredientModel;
 
-    private void Awake()
+    protected void Awake()
     {
+        base.Awake();
+        
         if (normalIngredientData == null || hardmodeIngredientData == null)
         {
             Debug.LogError("WorldIngredient: Ingredient data not assigned for " + gameObject.name);
@@ -36,6 +38,8 @@ public class WorldIngredient : Interactable
 
     private void OnMouseDown()
     {
+        if (!isActive) return;
+        
         Debug.Log("WorldIngredient clicked: " + gameObject.name);
         EventBus<OnIngredientPickupEvent>.Raise(new OnIngredientPickupEvent(!HardmodeManager.Instance.isHardmodeActive
             ? normalIngredientData
@@ -44,6 +48,8 @@ public class WorldIngredient : Interactable
     
     private void OnMouseEnter()
     {
+        if (!isActive) return;
+        
         EventBus<OnInteractableHoverStartEvent>.Raise(new OnInteractableHoverStartEvent(tooltipText, true));
     }
     

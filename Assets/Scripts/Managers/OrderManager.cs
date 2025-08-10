@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
@@ -15,7 +14,19 @@ public class OrderManager : MonoSingleton<OrderManager>
     {
         EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(GenerateNewOrder));
         EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(GenerateNewOrder));
-        
+        EventBus<OnGameStartEvent>.AddListener(new EventBinding<OnGameStartEvent>(OnGameStart));
+    }
+    
+    private void OnDestroy()
+    {
+        EventBus<OnHardmodeStartedEvent>.RemoveListener(new EventBinding<OnHardmodeStartedEvent>(GenerateNewOrder));
+        EventBus<OnHardmodeFailedEvent>.RemoveListener(new EventBinding<OnHardmodeFailedEvent>(GenerateNewOrder));
+        EventBus<OnGameStartEvent>.RemoveListener(new EventBinding<OnGameStartEvent>(OnGameStart));
+    }
+    
+    private void OnGameStart(OnGameStartEvent evt)
+    {
+        Debug.Log("Game started, generating first order.");
         // Wait 1 second, then generate the first order
         Invoke(nameof(GenerateNewOrder), 1f);
     }

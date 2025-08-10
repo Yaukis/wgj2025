@@ -24,7 +24,7 @@ public class HardmodeManager : MonoSingleton<HardmodeManager>
     
     private void Update()
     {
-        if (!isHardmodeActive || !_isTimerRunning || GameManager.Instance.isGameOver) return;
+        if (!isHardmodeActive || !_isTimerRunning || !GameManager.Instance.isGameRunning) return;
         
         if (_currentTime <= 0f)
         {
