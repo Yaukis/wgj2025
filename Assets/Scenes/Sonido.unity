@@ -882,7 +882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -2414,7 +2414,7 @@ GameObject:
   - component: {fileID: 1133697827}
   - component: {fileID: 1133697826}
   m_Layer: 0
-  m_Name: Music
+  m_Name: _SoundSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3432,6 +3432,7 @@ GameObject:
   - component: {fileID: 1788754115}
   - component: {fileID: 1788754114}
   - component: {fileID: 1788754118}
+  - component: {fileID: 1788754119}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3508,6 +3509,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalPotionData: {fileID: 0}
+--- !u!114 &1788754119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788754113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f41ca8e18d41b287cd2ab625c89d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calderoSFX:
+    ID: 1073741826
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 1788754113}
+  grabSFX:
+    ID: 1073741827
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 1788754113}
+  menuOpenSFX:
+    ID: 1073741825
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 1788754113}
 --- !u!1001 &1854596623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4366,6 +4391,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1133697827}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 133611990}
@@ -4388,4 +4414,3 @@ SceneRoots:
   - {fileID: 260123520}
   - {fileID: 270743497}
   - {fileID: 116127992}
-  - {fileID: 1133697827}
