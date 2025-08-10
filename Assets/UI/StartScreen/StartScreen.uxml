@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StartScreen/StartScreen.uss?fileID=7433441132597879392&amp;guid=af90d5fad5163334fb7e92ed4373a7e8&amp;type=3#StartScreen" />
+    <engine:VisualElement name="root" style="flex-grow: 1; justify-content: space-between; align-items: center;">
+        <engine:VisualElement name="titleContainer" style="flex-grow: 1; align-items: center; justify-content: center; flex-shrink: initial;">
+            <engine:Label text="Jueguito" name="titleLabel" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Cute%20Dino.otf?fileID=12800000&amp;guid=ae8dd5a270f1f4445bf4f0578b816243&amp;type=3#Cute Dino&quot;); font-size: 113px; color: rgb(243, 44, 247);" />
+        </engine:VisualElement>
+        <engine:VisualElement name="buttons" style="flex-grow: 1; align-items: center; justify-content: flex-start; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+            <engine:Button text="Jugar" name="startButton" class="button" />
+            <engine:Button text="Salir" name="exitButton" class="button" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

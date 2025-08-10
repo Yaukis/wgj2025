@@ -43,6 +43,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void StartGame()
     {
         EventBus<OnGameStartEvent>.Raise(new OnGameStartEvent());
+        isGameRunning = true;
         menuCamera.SetActive(false);
         playerGameObject.SetActive(true);
     }
