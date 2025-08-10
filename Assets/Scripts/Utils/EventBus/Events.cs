@@ -90,6 +90,9 @@ namespace Utils.EventBus
     {
     }
     
+    public struct OnRecipeBookOpenedEvent : IEvent
+    {
+    }
     
     /* Tooltip */
     public struct OnInteractableHoverStartEvent : IEvent

@@ -90,6 +90,7 @@ public class HUDManager : MonoSingleton<HUDManager>
     {
         if (_recipeBookContainerElement == null) return;
         Debug.Log("Toggling recipe book.");
+        EventBus<OnRecipeBookOpenedEvent>.Raise(new OnRecipeBookOpenedEvent());
         
         _recipeBookContainerElement.style.display = 
             _recipeBookContainerElement.style.display == DisplayStyle.None ? DisplayStyle.Flex : DisplayStyle.None;
