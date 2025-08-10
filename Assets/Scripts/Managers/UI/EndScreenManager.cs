@@ -1,6 +1,8 @@
+using UnityEngine;
 using UnityEngine.UIElements;
 using Utils;
 using Utils.EventBus;
+using Cursor = UnityEngine.UIElements.Cursor;
 
 public class EndScreenManager : MonoSingleton<EndScreenManager>
 {
@@ -32,7 +34,6 @@ public class EndScreenManager : MonoSingleton<EndScreenManager>
     {
         if (_rootElement == null) return;
         
-        _rootElement.style.visibility = Visibility.Visible;
-        _rootElement.style.opacity = 100;
+        _rootElement.style.opacity = 1;
     }
 }

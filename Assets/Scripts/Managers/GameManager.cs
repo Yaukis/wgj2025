@@ -31,7 +31,8 @@ public class GameManager : MonoSingleton<GameManager>
             isGameRunning = false;
             playerGameObject.SetActive(false);
             EventBus<OnGameOverEvent>.Raise(new OnGameOverEvent());
-            Invoke(nameof(PauseGame), 2f);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     
