@@ -18,7 +18,6 @@ namespace Utils
                     name = typeof(T).Name
                 };
                 _instance = go.AddComponent<T>();
-                DontDestroyOnLoad(go);
 
                 return _instance;
             }
@@ -29,7 +28,6 @@ namespace Utils
             if (_instance == null)
             {
                 _instance = this as T;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {

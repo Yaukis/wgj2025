@@ -8,8 +8,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
-        OrderManager.Instance.GenerateNewOrder();
-        
         EventBus<OnOrderCompletedEvent>.AddListener(new EventBinding<OnOrderCompletedEvent>(OnOrderCompleted));
     }
     
@@ -17,7 +15,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         EventBus<OnOrderCompletedEvent>.RemoveListener(new EventBinding<OnOrderCompletedEvent>(OnOrderCompleted));
     }
-    
+
     private void OnOrderCompleted()
     {
         Debug.Log($"Order completed.");

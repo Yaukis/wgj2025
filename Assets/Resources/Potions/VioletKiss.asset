@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548de07907c14d63b8b5bcd41667c274, type: 3}
+  m_Name: VioletKiss
+  m_EditorClassIdentifier: 
+  name: Beso Violeta
+  icon: {fileID: 21300000, guid: c23051dd7ed992843a261256294671e3, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 003c85d3a61be1b4da0ea4dbf6664b2a, type: 2}
+  - {fileID: 11400000, guid: 26c64f3760d0042d39edc0b28c8abdf8, type: 2}
+  - {fileID: 11400000, guid: 0e0bc385548824e45ad89c1b8aa48d7e, type: 2}

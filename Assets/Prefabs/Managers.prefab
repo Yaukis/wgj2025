@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2963619286731410886}
   - component: {fileID: 1258461240337204094}
   - component: {fileID: 4020347758691172030}
-  - component: {fileID: 8691260033676479725}
+  - component: {fileID: 520474222039654768}
+  - component: {fileID: 4576949163405849371}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -90,7 +91,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalPotionData: {fileID: 11400000, guid: 1ec496b78df59b34b92c8a52239b920f, type: 2}
---- !u!114 &8691260033676479725
+--- !u!114 &520474222039654768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963673727927672654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f41ca8e18d41b287cd2ab625c89d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calderoSFX:
+    ID: 1073741826
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8963673727927672654}
+  grabSFX:
+    ID: 1073741827
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8963673727927672654}
+  menuOpenSFX:
+    ID: 1073741825
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8963673727927672654}
+--- !u!114 &4576949163405849371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

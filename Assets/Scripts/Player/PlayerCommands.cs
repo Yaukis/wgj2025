@@ -9,11 +9,6 @@ public class PlayerCommands : MonoBehaviour
         {
             Debug.Log("Escape key pressed. Open menu.");
         }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            HUDManager.Instance.ToggleRecipeBook();
-        }
         
         if (Input.GetKeyDown(KeyCode.T))
         {

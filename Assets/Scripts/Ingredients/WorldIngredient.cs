@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using Utils.EventBus;
 
@@ -13,8 +12,13 @@ public class WorldIngredient : Interactable
         {
             Debug.LogError("WorldIngredient: Ingredient data not assigned for " + gameObject.name);
         }
-        
-        tooltipText = normalIngredientData != null ? normalIngredientData.name : "Unknown Ingredient";
+    }
+
+    private void OnEnable()
+    {
+        tooltipText = HardmodeManager.Instance.isHardmodeActive
+            ? hardmodeIngredientData.name
+            : normalIngredientData.name;
     }
 
     private void Start()
@@ -44,11 +48,13 @@ public class WorldIngredient : Interactable
     
     private void OnHardmodeStarted()
     {
-        tooltipText = hardmodeIngredientData.name;
+        Instantiate(hardmodeIngredientData.worldPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
     
     private void OnHardmodeFailed()
     {
-        tooltipText = normalIngredientData.name;
+        Instantiate(normalIngredientData.worldPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class HUDManager : MonoSingleton<HUDManager>
     [SerializeField] private Sprite reticleIcon;
     [SerializeField] private Sprite openHandIcon;
     [SerializeField] private Sprite grabbingHandIcon;
+    [SerializeField] private GameObject clickBlocker;
     
     private UIDocument _uiDocument;
     
@@ -92,8 +93,9 @@ public class HUDManager : MonoSingleton<HUDManager>
         Debug.Log("Toggling recipe book.");
         EventBus<OnRecipeBookOpenedEvent>.Raise(new OnRecipeBookOpenedEvent());
         
-        _recipeBookContainerElement.style.display = 
-            _recipeBookContainerElement.style.display == DisplayStyle.None ? DisplayStyle.Flex : DisplayStyle.None;
+        var isRecipeBookOpen = _recipeBookContainerElement.style.display != DisplayStyle.None;
+        clickBlocker.SetActive(!isRecipeBookOpen);
+        _recipeBookContainerElement.style.display = !isRecipeBookOpen ? DisplayStyle.Flex : DisplayStyle.None;
     }
     
     public void ToggleRecipeBookMode(bool isHardmode)
@@ -122,8 +124,8 @@ public class HUDManager : MonoSingleton<HUDManager>
     
     private void OnNewOrder(OnNewOrderEvent evt)
     {
+        Debug.Log($"Trying to show new order UI for potion: {_currentOrderLabel}, {HardmodeManager.Instance.isHardmodeActive}");
         if (_currentOrderLabel == null || HardmodeManager.Instance.isHardmodeActive) return;
-
         ChangeOrderContainerVisibility(true);
         const string baseText = "¡Oye! Necesito que hagas una poción de ";
         _currentOrderLabel.text = baseText + $"<b>{evt.potionData.name}</b>...";

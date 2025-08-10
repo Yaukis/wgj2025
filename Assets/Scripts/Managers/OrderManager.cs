@@ -15,6 +15,9 @@ public class OrderManager : MonoSingleton<OrderManager>
     {
         EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(GenerateNewOrder));
         EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(GenerateNewOrder));
+        
+        // Wait 1 second, then generate the first order
+        Invoke(nameof(GenerateNewOrder), 1f);
     }
 
     public void GenerateNewOrder()
