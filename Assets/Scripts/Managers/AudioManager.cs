@@ -11,6 +11,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     [SerializeField] private SoundID calderoSFX;
     [SerializeField] private SoundID grabSFX;
     [SerializeField] private SoundID menuOpenSFX;
+    [SerializeField] private SoundID errorSFX;
 
     [SerializeField] private SoundID bkgMusic;
     [SerializeField] private float pitchShiftStep = 0.01f; // amount to decrease pitch each interval
@@ -26,6 +27,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         EventBus<OnRecipeBookOpenedEvent>.AddListener(new EventBinding<OnRecipeBookOpenedEvent>(OnRecipeBookOpened));
         EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
         EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
+        EventBus<OnOrderFailedEvent>.AddListener(new EventBinding<OnOrderFailedEvent>(OnOrderFailed));
     }
 
     private void Update()
@@ -81,5 +83,10 @@ public class AudioManager : MonoSingleton<AudioManager>
         _currentPitch = 1f; // reset pitch to initial value
         BroAudio.SetPitch(bkgMusic, _currentPitch);
         _timer = 0f; // reset timer
+    }
+    
+    private void OnOrderFailed(OnOrderFailedEvent evt)
+    {
+        BroAudio.Play(errorSFX);
     }
 }
