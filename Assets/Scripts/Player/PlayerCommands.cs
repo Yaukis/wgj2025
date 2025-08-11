@@ -20,9 +20,14 @@ public class PlayerCommands : MonoBehaviour
             HardmodeManager.Instance.SetHardmode(!HardmodeManager.Instance.isHardmodeActive);
         }
         
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             EventBus<OnOrderCompletedEvent>.Raise(new OnOrderCompletedEvent());
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            EventBus<OnOrderFailedEvent>.Raise(new OnOrderFailedEvent());
         }
     }
 }
