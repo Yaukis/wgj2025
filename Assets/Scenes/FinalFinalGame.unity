@@ -209,30 +209,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 40319547646687873, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1063121873714813544, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2994825788143179818, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2994825788143179818, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2994825788143179818, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2994825788143179818, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      propertyPath: m_Intensity
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6732657493016341455, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -274,13 +250,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1063121873714813544, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 40319547646687873, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1907636554}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
 --- !u!20 &36542641 stripped
 Camera:
@@ -4785,10 +4757,6 @@ PrefabInstance:
     - target: {fileID: 7266577584659276914, guid: 86b14a4e3cef5c64a80c92522325e7fa, type: 3}
       propertyPath: m_Name
       value: MenuCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 7266577584659276914, guid: 86b14a4e3cef5c64a80c92522325e7fa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10288,10 +10256,6 @@ PrefabInstance:
     - target: {fileID: 3747316085641937094, guid: 280728e680bfe404ba5a668b470bbd00, type: 3}
       propertyPath: m_Name
       value: StartScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 3747316085641937094, guid: 280728e680bfe404ba5a668b470bbd00, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8565130109975144241, guid: 280728e680bfe404ba5a668b470bbd00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17050,18 +17014,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 40319547646687873, guid: 96b517df4adc816419faa02f3fd705ff, type: 3}
   m_PrefabInstance: {fileID: 36542640}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1907636554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907636553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53143c703e5c4b26a4febc2a241b801e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1908469254
 PrefabInstance:
   m_ObjectHideFlags: 0
