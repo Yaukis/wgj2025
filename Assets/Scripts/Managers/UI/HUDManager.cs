@@ -124,6 +124,7 @@ public class HUDManager : MonoSingleton<HUDManager>
                 return; // Already visible, no need to change
             
             _currentOrderContainerElement.style.translate = new StyleTranslate(new Translate(0, 0));
+            _currentOrderTextGroupElement.style.opacity = 1;
             _currentOrderContainerElement.AddToClassList("visible");
         }
         else
