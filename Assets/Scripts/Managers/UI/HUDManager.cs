@@ -148,7 +148,7 @@ public class HUDManager : MonoSingleton<HUDManager>
 
     private void OnOrderFailed(OnOrderFailedEvent evt)
     {
-        StartCoroutine(ShakeVisualElement(_currentOrderContainerElement, 10f, 0.4f));
+        StartCoroutine(ShakeVisualElement(_currentOrderContainerElement, 20f, 0.4f));
     }
 
     private IEnumerator ShakeVisualElement(VisualElement element, float magnitude, float duration)
