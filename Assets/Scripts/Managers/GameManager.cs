@@ -1,3 +1,4 @@
+using FollowCamera;
 using UnityEngine;
 using Utils;
 using Utils.EventBus;
@@ -9,9 +10,13 @@ public class GameManager : MonoSingleton<GameManager>
     
     public bool isGameRunning;
 
+    private CameraFollow _cameraFollow;
+    
     private void Start()
     {
         EventBus<OnOrderCompletedEvent>.AddListener(new EventBinding<OnOrderCompletedEvent>(OnOrderCompleted));
+        
+        _cameraFollow = playerGameObject.GetComponentInChildren<CameraFollow>();
     }
     
     private void OnDestroy()
@@ -47,5 +52,16 @@ public class GameManager : MonoSingleton<GameManager>
         isGameRunning = true;
         menuCamera.SetActive(false);
         playerGameObject.SetActive(true);
+    }
+    
+    public void SetMouseSensitivity(float sensitivity)
+    {
+        if (!_cameraFollow)
+        {
+            Debug.LogError("No cameraFollow found.");
+            return;
+        }
+        
+        _cameraFollow.SetMouseSensitivity(sensitivity, sensitivity);
     }
 }

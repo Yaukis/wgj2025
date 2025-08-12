@@ -1,12 +1,50 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StartScreen/StartScreen.uss?fileID=7433441132597879392&amp;guid=af90d5fad5163334fb7e92ed4373a7e8&amp;type=3#StartScreen" />
-    <engine:VisualElement name="root" style="flex-grow: 1; justify-content: space-between; align-items: center; background-color: rgba(26, 4, 26, 0.83);">
-        <engine:VisualElement name="titleContainer" style="flex-grow: 1; align-items: center; justify-content: center; flex-shrink: initial;">
-            <engine:Label text="Potionistic" name="titleLabel" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Deutsch.ttf?fileID=12800000&amp;guid=efb62d9b7e8a27f44a1db9076f31460a&amp;type=3#Deutsch&quot;); font-size: 113px; color: rgb(141, 221, 20); text-shadow: 0 0 100px rgba(152, 250, 0, 0.4);" />
+    <engine:VisualElement name="root" style="flex-grow: 1; justify-content: space-between; align-items: center; background-color: rgba(26, 4, 26, 0.83); visibility: visible;">
+        <engine:VisualElement name="mainMenuContainer" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; visibility: visible; display: flex; transition-property: opacity; transition-duration: 0.25s; transition-timing-function: ease-out-cubic;">
+            <engine:VisualElement name="titleContainer" style="flex-grow: 1; align-items: center; justify-content: center; flex-shrink: initial;">
+                <engine:Label text="Potionistic" name="titleLabel" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Deutsch.ttf?fileID=12800000&amp;guid=efb62d9b7e8a27f44a1db9076f31460a&amp;type=3#Deutsch&quot;); font-size: 113px; color: rgb(141, 221, 20); text-shadow: 0 0 100px rgba(152, 250, 0, 0.4);" />
+            </engine:VisualElement>
+            <engine:VisualElement name="buttons" style="flex-grow: 1; align-items: center; justify-content: flex-start; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 368px;">
+                <engine:Button text="Jugar" name="startButton" class="button" style="background-image: url(&quot;project://database/Assets/2D/UI/Boton_1.png?fileID=2800000&amp;guid=9855315b8b7784a96abba939d5761fc4&amp;type=3#Boton_1&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0;" />
+                <engine:Button text="Opciones" name="settingsButton" class="button" style="background-image: url(&quot;project://database/Assets/2D/UI/Boton_1.png?fileID=2800000&amp;guid=9855315b8b7784a96abba939d5761fc4&amp;type=3#Boton_1&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                <engine:Button text="Salir" name="exitButton" class="button" style="background-image: url(&quot;project://database/Assets/2D/UI/Boton_1.png?fileID=2800000&amp;guid=9855315b8b7784a96abba939d5761fc4&amp;type=3#Boton_1&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+            </engine:VisualElement>
         </engine:VisualElement>
-        <engine:VisualElement name="buttons" style="flex-grow: 1; align-items: center; justify-content: flex-start; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 368px;">
-            <engine:Button text="Jugar" name="startButton" class="button" style="background-image: url(&quot;project://database/Assets/2D/UI/Boton_1.png?fileID=2800000&amp;guid=9855315b8b7784a96abba939d5761fc4&amp;type=3#Boton_1&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0;" />
-            <engine:Button text="Salir" name="exitButton" class="button" style="background-image: url(&quot;project://database/Assets/2D/UI/Boton_1.png?fileID=2800000&amp;guid=9855315b8b7784a96abba939d5761fc4&amp;type=3#Boton_1&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <engine:VisualElement name="settingsContainer" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; align-items: stretch; padding-top: 70px; padding-right: 70px; padding-bottom: 70px; padding-left: 70px; display: flex; visibility: visible; transition-property: translate; transition-duration: 0.25s; transition-timing-function: ease-out-cubic; translate: 0 1080px;">
+            <engine:VisualElement name="sections" style="flex-grow: 1; align-content: auto; flex-direction: row; justify-content: space-between;">
+                <engine:VisualElement name="generalControls" class="settingsSection" style="flex-grow: 1;">
+                    <engine:Label text="General" name="Label" />
+                    <engine:VisualElement name="mouseSensitivity" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                        <engine:VisualElement name="textContainer" class="sliderLabel">
+                            <engine:Label text="Sensibilidad del mouse" enable-rich-text="true" />
+                        </engine:VisualElement>
+                        <engine:Slider value="150" fill="true" high-value="200" low-value="100" name="mouseSensitivitySlider" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="volumeControls" class="settingsSection" style="flex-grow: 1; align-self: auto;">
+                    <engine:Label text="Volumen" />
+                    <engine:VisualElement name="generalVolume" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                        <engine:VisualElement name="textContainer" class="sliderLabel">
+                            <engine:Label text="General" />
+                        </engine:VisualElement>
+                        <engine:Slider value="25" fill="true" high-value="1" name="generalVolumeSlider" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="musicVolume" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                        <engine:VisualElement name="textContainer" class="sliderLabel">
+                            <engine:Label text="Música" />
+                        </engine:VisualElement>
+                        <engine:Slider value="25" fill="true" high-value="1" name="musicVolumeSlider" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="sfxVolume" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                        <engine:VisualElement name="textContainer" class="sliderLabel">
+                            <engine:Label text="Efectos" />
+                        </engine:VisualElement>
+                        <engine:Slider value="25" fill="true" high-value="1" name="sfxVolumeSlider" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:Button text="Volver" name="backButton" class="button" style="align-self: center;" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
