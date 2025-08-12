@@ -11602,10 +11602,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1941716157738393432, guid: dd13df2f699dd0144a896f57cb297b76, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3359433642420289564, guid: dd13df2f699dd0144a896f57cb297b76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2
@@ -11649,10 +11645,6 @@ PrefabInstance:
     - target: {fileID: 5108022074697627214, guid: dd13df2f699dd0144a896f57cb297b76, type: 3}
       propertyPath: m_Name
       value: _SoundSource
-      objectReference: {fileID: 0}
-    - target: {fileID: 6842234774637562702, guid: dd13df2f699dd0144a896f57cb297b76, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
