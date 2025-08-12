@@ -262,14 +262,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e8ffb1310baf44ea32ca749817aef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 200
-  mouseSensitivityY: 200
+  mouseSensitivityX: 150
+  mouseSensitivityY: 150
   invertMouseY: 0
   minVerticalAngle: -60
   maxVerticalAngle: 60
   minHorizontalAngle: -90
   maxHorizontalAngle: 90
-  smoothTime: 0.1
+  smoothTime: 0.025
   enableSmoothing: 1
   playerBody: {fileID: 6732657493016341455}
   playerCamera: {fileID: 2408447697450931930}

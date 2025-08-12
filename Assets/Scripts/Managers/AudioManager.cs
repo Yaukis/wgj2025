@@ -89,4 +89,20 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         BroAudio.Play(errorSFX);
     }
+    
+    public void SetVolume(float volume)
+    {
+        BroAudio.SetVolume(volume);
+    }
+    
+    public void SetMusicVolume(float volume)
+    {
+        BroAudio.SetVolume(BroAudioType.Music, volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        BroAudio.SetVolume(BroAudioType.SFX, volume);
+        BroAudio.SetVolume(BroAudioType.Ambience, volume);
+    }
 }

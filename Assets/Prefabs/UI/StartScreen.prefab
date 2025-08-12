@@ -64,3 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aea32609c664a4489070fb780c73b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickSound:
+    ID: 1073741829
+    _sourceAsset: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    <DebugObject>k__BackingField: {fileID: 3747316085641937094}
