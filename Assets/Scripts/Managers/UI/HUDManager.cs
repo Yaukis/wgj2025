@@ -15,6 +15,7 @@ public class HUDManager : MonoSingleton<HUDManager>
 
     private VisualElement _rootElement;
 
+    private bool _isRecipeBookOpen = false;
     private VisualElement _recipeBookContainerElement;
     private VisualElement _recipeBookNormalElement;
     private VisualElement _recipeBookHardmodeElement;
@@ -56,6 +57,7 @@ public class HUDManager : MonoSingleton<HUDManager>
 
         // Initially hide the recipe book and current order elements
         _recipeBookContainerElement.style.display = DisplayStyle.None;
+        _isRecipeBookOpen = false;
     }
 
     private void Start()
@@ -99,11 +101,22 @@ public class HUDManager : MonoSingleton<HUDManager>
     {
         if (_recipeBookContainerElement == null) return;
         Debug.Log("Toggling recipe book.");
-        EventBus<OnRecipeBookOpenedEvent>.Raise(new OnRecipeBookOpenedEvent());
 
-        var isRecipeBookOpen = _recipeBookContainerElement.style.display != DisplayStyle.None;
-        clickBlocker.SetActive(!isRecipeBookOpen);
-        _recipeBookContainerElement.style.display = !isRecipeBookOpen ? DisplayStyle.Flex : DisplayStyle.None;
+        ToggleRecipeBook(!_isRecipeBookOpen);
+    }
+
+    public void ToggleRecipeBook(bool isOpen)
+    {
+        if (_recipeBookContainerElement == null) return;
+
+        _isRecipeBookOpen = isOpen;
+        clickBlocker.SetActive(!_isRecipeBookOpen);
+        _recipeBookContainerElement.style.display = _isRecipeBookOpen ? DisplayStyle.Flex : DisplayStyle.None;
+        
+        if (_isRecipeBookOpen)
+        {
+            EventBus<OnRecipeBookOpenedEvent>.Raise(new OnRecipeBookOpenedEvent());
+        }
     }
 
     public void ToggleRecipeBookMode(bool isHardmode)

@@ -1,0 +1,38 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Templates/settingsContainer.uss?fileID=7433441132597879392&amp;guid=35b00f3861574d2f8e8db62849ca1b32&amp;type=3#settingsContainer" />
+    <engine:VisualElement name="settingsContainer" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; align-items: stretch; padding-top: 70px; padding-right: 70px; padding-bottom: 70px; padding-left: 70px; display: flex; visibility: visible; transition-property: translate; transition-duration: 0.25s; transition-timing-function: ease-out-cubic; translate: 0 1080px;">
+        <engine:VisualElement name="sections" style="flex-grow: 1; align-content: auto; flex-direction: row; justify-content: space-between;">
+            <engine:VisualElement name="generalControls" class="settingsSection" style="flex-grow: 1;">
+                <engine:Label text="General" />
+                <engine:VisualElement name="mouseSensitivity" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                    <engine:VisualElement name="textContainer" class="sliderLabel">
+                        <engine:Label text="Sensibilidad del mouse" enable-rich-text="true" />
+                    </engine:VisualElement>
+                    <engine:Slider value="100" fill="true" high-value="150" low-value="50" name="mouseSensitivitySlider" show-input-field="true" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="volumeControls" class="settingsSection" style="flex-grow: 1; align-self: auto;">
+                <engine:Label text="Volumen" />
+                <engine:VisualElement name="generalVolume" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                    <engine:VisualElement name="textContainer" class="sliderLabel">
+                        <engine:Label text="General" />
+                    </engine:VisualElement>
+                    <engine:Slider value="25" fill="true" high-value="1" name="generalVolumeSlider" />
+                </engine:VisualElement>
+                <engine:VisualElement name="musicVolume" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                    <engine:VisualElement name="textContainer" class="sliderLabel">
+                        <engine:Label text="Música" />
+                    </engine:VisualElement>
+                    <engine:Slider value="25" fill="true" high-value="1" name="musicVolumeSlider" />
+                </engine:VisualElement>
+                <engine:VisualElement name="sfxVolume" class="sliderControl" style="flex-grow: 1; align-items: center;">
+                    <engine:VisualElement name="textContainer" class="sliderLabel">
+                        <engine:Label text="Efectos" />
+                    </engine:VisualElement>
+                    <engine:Slider value="25" fill="true" high-value="1" name="sfxVolumeSlider" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:Button text="Volver" name="backButton" class="button" style="align-self: center;" />
+    </engine:VisualElement>
+</engine:UXML>

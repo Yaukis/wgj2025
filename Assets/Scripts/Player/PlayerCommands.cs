@@ -3,12 +3,21 @@ using Utils.EventBus;
 
 public class PlayerCommands : MonoBehaviour
 {
+    private const bool DebugCommandsEnabled = false;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Escape key pressed. Open menu.");
+            HUDManager.Instance.ToggleRecipeBook(false);
         }
+        
+        HandleDebugCommands();
+    }
+    
+    private void HandleDebugCommands()
+    {
+        if (!DebugCommandsEnabled) return;
         
         if (Input.GetKeyDown(KeyCode.T))
         {

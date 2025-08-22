@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6732657493016341455}
+  - component: {fileID: 657056749326432770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 5683014969096801710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &657056749326432770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40319547646687873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53143c703e5c4b26a4febc2a241b801e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &505076899664996594
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +283,7 @@ MonoBehaviour:
   minHorizontalAngle: -90
   maxHorizontalAngle: 90
   smoothTime: 0.025
-  enableSmoothing: 1
+  enableSmoothing: 0
   playerBody: {fileID: 6732657493016341455}
   playerCamera: {fileID: 2408447697450931930}
   playerController: {fileID: 0}
@@ -287,6 +300,7 @@ MonoBehaviour:
   landingShakeIntensity: 0.15
   landingShakeDuration: 0.3
   shakeReduction: 2
+  escCursorToggle: 0
 --- !u!1 &7374456685698365403
 GameObject:
   m_ObjectHideFlags: 0

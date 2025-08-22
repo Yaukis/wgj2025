@@ -37,6 +37,9 @@ namespace FollowCamera // Or any other appropriate namespace
         [SerializeField] private float landingShakeIntensity = 0.15f;
         [SerializeField] private float landingShakeDuration = 0.3f;
         [SerializeField] private float shakeReduction = 2f;
+        
+        [Header("Other Settings")]
+        [SerializeField] private bool escCursorToggle = true;
 
         // Private variables for mouse look
         private float xRotation = 0f;
@@ -257,6 +260,8 @@ namespace FollowCamera // Or any other appropriate namespace
 
         private void HandleCursorToggle()
         {
+            if (!escCursorToggle) return;
+            
             // Toggle cursor lock with Escape key
             if (Input.GetKeyDown(KeyCode.Escape))
             {
