@@ -161,6 +161,8 @@ public class HUDManager : MonoSingleton<HUDManager>
 
     private void OnOrderFailed(OnOrderFailedEvent evt)
     {
+        if (HardmodeManager.Instance.isHardmodeActive) return;
+        
         StartCoroutine(ShakeVisualElement(_currentOrderContainerElement, 20f, 0.4f));
     }
 
