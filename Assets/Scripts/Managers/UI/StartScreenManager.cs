@@ -98,6 +98,11 @@ public class StartScreenManager : MonoBehaviour
             GameManager.Instance.SetMouseSensitivity(evt.newValue);
         });
         
+        _generalVolumeSlider.value = PlayerPrefs.GetFloat("generalVolume", 1f);
+        _musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume", 1f);
+        _sfxVolumeSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
+        _mouseSensitivitySlider.value = PlayerPrefs.GetFloat("mouseSensitivity", 100f);
+        
         if (_backButton != null)
         {
             _backButton.clicked += ToggleSettingsMenu;

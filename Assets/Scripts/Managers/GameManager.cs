@@ -63,5 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         
         _cameraFollow.SetMouseSensitivity(sensitivity, sensitivity);
+        PlayerPrefs.SetFloat("mouseSensitivity", sensitivity);
+        PlayerPrefs.Save();
     }
 }

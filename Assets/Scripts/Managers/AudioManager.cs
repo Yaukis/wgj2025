@@ -114,16 +114,22 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void SetVolume(float volume)
     {
         BroAudio.SetVolume(volume);
+        PlayerPrefs.SetFloat("masterVolume", volume);
+        PlayerPrefs.Save();
     }
     
     public void SetMusicVolume(float volume)
     {
         BroAudio.SetVolume(BroAudioType.Music, volume);
+        PlayerPrefs.SetFloat("musicVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetSFXVolume(float volume)
     {
         BroAudio.SetVolume(BroAudioType.SFX, volume);
         BroAudio.SetVolume(BroAudioType.Ambience, volume);
+        PlayerPrefs.SetFloat("sfxVolume", volume);
+        PlayerPrefs.Save();
     }
 }
