@@ -14,14 +14,16 @@ public class CauldronFeedback : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
         EventBus<OnOrderFailedEvent>.AddListener(new EventBinding<OnOrderFailedEvent>(OnOrderFailed));
+        EventBus<OnPotionResetEvent>.AddListener(new EventBinding<OnPotionResetEvent>(OnPotionReset));
     }
     
-    private void OnDestroy()
+    private void OnDisable()
     {
         EventBus<OnOrderFailedEvent>.RemoveListener(new EventBinding<OnOrderFailedEvent>(OnOrderFailed));
+        EventBus<OnPotionResetEvent>.RemoveListener(new EventBinding<OnPotionResetEvent>(OnPotionReset));
     }
     
     private void OnOrderFailed(OnOrderFailedEvent evt)
@@ -29,5 +31,10 @@ public class CauldronFeedback : MonoBehaviour
         Debug.Log("Order failed! Displaying cauldron feedback.");
         
         if (_animator != null) _animator.SetTrigger("Fail");
+    }
+
+    private void OnPotionReset(OnPotionResetEvent evt)
+    {
+        if (_animator != null) _animator.SetTrigger("Reset");
     }
 }

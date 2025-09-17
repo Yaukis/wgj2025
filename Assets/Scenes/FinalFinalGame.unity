@@ -13131,6 +13131,18 @@ PrefabInstance:
       propertyPath: playerGameObject
       value: 
       objectReference: {fileID: 1907636553}
+    - target: {fileID: 1959324009706064432, guid: 39e802e1c50a4f44cbe5914c3de64923, type: 3}
+      propertyPath: flushSFX.ID
+      value: 1073741830
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959324009706064432, guid: 39e802e1c50a4f44cbe5914c3de64923, type: 3}
+      propertyPath: flushSFX._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c4613ee1f5154262be086d3bcaf7b1e, type: 2}
+    - target: {fileID: 1959324009706064432, guid: 39e802e1c50a4f44cbe5914c3de64923, type: 3}
+      propertyPath: flushSFX.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1841060944}
     - target: {fileID: 2963619286731410886, guid: 39e802e1c50a4f44cbe5914c3de64923, type: 3}
       propertyPath: playerCamera
       value: 
@@ -16526,6 +16538,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b342150c49da37043b714c60e5def21a, type: 3}
   m_PrefabInstance: {fileID: 1821104303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1841060944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8963673727927672654, guid: 39e802e1c50a4f44cbe5914c3de64923, type: 3}
+  m_PrefabInstance: {fileID: 1448773278}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1858361877
 PrefabInstance:

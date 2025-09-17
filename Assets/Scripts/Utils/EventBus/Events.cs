@@ -98,6 +98,10 @@ namespace Utils.EventBus
     {
     }
     
+    public struct OnPotionResetEvent : IEvent
+    {
+    }
+    
     /* Tooltip */
     public struct OnInteractableHoverStartEvent : IEvent
     {

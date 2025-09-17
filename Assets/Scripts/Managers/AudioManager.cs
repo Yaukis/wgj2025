@@ -1,21 +1,22 @@
-using System;
 using Ami.BroAudio;
 using UnityEngine;
 using Utils;
 using Utils.EventBus;
 
-
 public class AudioManager : MonoSingleton<AudioManager>
 {
-
+    [Header("Sound Effects")]
     [SerializeField] private SoundID calderoSFX;
     [SerializeField] private SoundID grabSFX;
     [SerializeField] private SoundID menuOpenSFX;
     [SerializeField] private SoundID errorSFX;
+    [SerializeField] private SoundID flushSFX;
 
+    [Header("Background Music")]
     [SerializeField] private SoundID bkgMusic;
     [SerializeField] private float pitchShiftStep = 0.01f; // amount to decrease pitch each interval
     [SerializeField] private float pitchShiftInterval = 300f; // in milliseconds
+    
     private float _timer = 0f;
     private bool _hardmodeStarted = false;
     private float _currentPitch = 1f; // initial pitch
@@ -28,6 +29,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         EventBus<OnHardmodeStartedEvent>.AddListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
         EventBus<OnHardmodeFailedEvent>.AddListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
         EventBus<OnOrderFailedEvent>.AddListener(new EventBinding<OnOrderFailedEvent>(OnOrderFailed));
+        EventBus<OnPotionResetEvent>.AddListener(new EventBinding<OnPotionResetEvent>(OnPotionReset));
     }
 
     private void Update()
@@ -55,20 +57,30 @@ public class AudioManager : MonoSingleton<AudioManager>
         EventBus<OnIngredientAddedToMixEvent>.RemoveListener(new EventBinding<OnIngredientAddedToMixEvent>(OnIngredientAddedToMix));
         EventBus<OnIngredientPickupEvent>.RemoveListener(new EventBinding<OnIngredientPickupEvent>(OnIngredientPickup));
         EventBus<OnRecipeBookOpenedEvent>.RemoveListener(new EventBinding<OnRecipeBookOpenedEvent>(OnRecipeBookOpened));
+        EventBus<OnHardmodeStartedEvent>.RemoveListener(new EventBinding<OnHardmodeStartedEvent>(OnHardmodeStarted));
+        EventBus<OnHardmodeFailedEvent>.RemoveListener(new EventBinding<OnHardmodeFailedEvent>(OnHardmodeFailed));
+        EventBus<OnOrderFailedEvent>.RemoveListener(new EventBinding<OnOrderFailedEvent>(OnOrderFailed));
+        EventBus<OnPotionResetEvent>.RemoveListener(new EventBinding<OnPotionResetEvent>(OnPotionReset));
     }
     
     private void OnIngredientAddedToMix(OnIngredientAddedToMixEvent evt)
     {
+        if (calderoSFX == -1) return;
+        
         BroAudio.Play(calderoSFX);
     }
     
     private void OnIngredientPickup(OnIngredientPickupEvent evt)
     {
+        if (grabSFX == -1) return;
+        
         BroAudio.Play(grabSFX);
     }
     
     private void OnRecipeBookOpened(OnRecipeBookOpenedEvent evt)
     {
+        if (menuOpenSFX == -1) return;
+        
         BroAudio.Play(menuOpenSFX);
     }
 
@@ -87,7 +99,16 @@ public class AudioManager : MonoSingleton<AudioManager>
     
     private void OnOrderFailed(OnOrderFailedEvent evt)
     {
+        if (errorSFX == -1) return;
+        
         BroAudio.Play(errorSFX);
+    }
+
+    private void OnPotionReset(OnPotionResetEvent evt)
+    {
+        if (flushSFX == -1) return;
+        
+        BroAudio.Play(flushSFX);
     }
     
     public void SetVolume(float volume)
