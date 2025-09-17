@@ -38,6 +38,7 @@ public class OrderManager : MonoSingleton<OrderManager>
             if (finalPotionData == null) return;
 
             _currentPotion = finalPotionData;
+            return;
         }
         else
         {

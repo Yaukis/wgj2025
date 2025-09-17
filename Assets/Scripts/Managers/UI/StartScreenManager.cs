@@ -23,7 +23,7 @@ public class StartScreenManager : MonoBehaviour
     private Slider _mouseSensitivitySlider;
     private Button _backButton;
     
-    private void Awake()
+    private void OnEnable()
     {
         var uiDocument = GetComponent<UIDocument>();
         if (uiDocument == null)

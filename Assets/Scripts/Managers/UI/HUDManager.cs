@@ -110,7 +110,7 @@ public class HUDManager : MonoSingleton<HUDManager>
         if (_recipeBookContainerElement == null) return;
 
         _isRecipeBookOpen = isOpen;
-        clickBlocker.SetActive(!_isRecipeBookOpen);
+        clickBlocker.SetActive(_isRecipeBookOpen);
         _recipeBookContainerElement.style.display = _isRecipeBookOpen ? DisplayStyle.Flex : DisplayStyle.None;
         
         if (_isRecipeBookOpen)

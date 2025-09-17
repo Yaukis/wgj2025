@@ -7589,6 +7589,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1990806058}
     m_Modifications:
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4224148
       objectReference: {fileID: 0}
@@ -7606,15 +7610,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7622,7 +7626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8323300844227150448, guid: bb10c50f48e1cc242b3307104a47e5db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -10257,6 +10261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 4724043701514357232, guid: 280728e680bfe404ba5a668b470bbd00, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8565130109975144241, guid: 280728e680bfe404ba5a668b470bbd00, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11207,6 +11215,10 @@ PrefabInstance:
     - target: {fileID: 8127784660786178694, guid: c05b15c39fd388248a8e768105b2acf8, type: 3}
       propertyPath: m_Name
       value: HUDUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127784660786178694, guid: c05b15c39fd388248a8e768105b2acf8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14640,6 +14652,10 @@ PrefabInstance:
     - target: {fileID: 8058365605314762786, guid: d667119fa02f0b641be205e10f5e72a4, type: 3}
       propertyPath: m_Name
       value: EndScreenUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058365605314762786, guid: d667119fa02f0b641be205e10f5e72a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
